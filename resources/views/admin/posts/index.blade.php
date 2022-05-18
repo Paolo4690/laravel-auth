@@ -7,12 +7,9 @@
         @if (session('deleted'))
             <div class="alert alert-warning">{{ session('deleted') }}</div>
         @endif
-        <div class="row mt-5">
-            <div class="col-9">
-                <h1 class="text-white">Posts</h1>
-            </div>
-            <div class="col-3">
-                <a href="{{ route('admin.posts.create') }}" class="btn btn-success float-right">Crea un nuovo post</a>
+        <div class="mt-5 d-flex justify-content-between align-items-center">
+            <h1 class="text-white">Posts</h1>
+            <a href="{{ route('admin.posts.create') }}" class="btn btn-success float-right">Crea un nuovo post</a>
         </div>
         <div class="row">
             <div class="col">

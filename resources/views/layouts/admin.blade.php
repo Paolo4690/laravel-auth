@@ -14,6 +14,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="bg-dark">
+    @include('partials.headeradmin')
     @yield('pageContent')
 </body>
 </html>
