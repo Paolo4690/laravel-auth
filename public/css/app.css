@@ -3527,7 +3527,7 @@ textarea.form-control-lg {
 }
 .dropdown-menu[data-bs-popper] {
   top: 100%;
-  left: 0;
+  right: 0;
   margin-top: 0.125rem;
 }
 
@@ -11259,4 +11259,8 @@ textarea.form-control-lg {
   max-width: 90%;
   background-color: white;
   border-radius: 1rem;
+}
+
+button.navbar-toggler .hamb {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }

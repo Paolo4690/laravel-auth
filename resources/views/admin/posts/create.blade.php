@@ -5,16 +5,13 @@
 @section('pageContent')
 
     <div class="container">
-        <div class="row mt-5">
-            <div class="col-9">
+        <div class="d-flex justify-content-between align-items-center mt-3">
                 <h1 class="text-white">Crea un nuovo post</h1>
-            </div>
-            <div class="col-3">
                 <a href="{{ route('admin.posts.index') }}" class="btn btn-success float-right">Torna alla lista</a>
-            </div>
+        </div>
         <form action="{{ route('admin.posts.store') }}" method="POST">
             @csrf
-            <div class="form-group  text-white">
+            <div class="form-group text-white">
 
                 <label for="title">Inserisci il titolo: </label>
                 <input type="text" name="title" id="title" class="form-control mb-3" value="{{ old('title') }}" >
@@ -23,6 +20,16 @@
                         {{ $message }}
                     </div>
                 @enderror
+
+                <label for="slug">Inserisci lo slug: </label>
+                <input type="text" name="slug" id="slug" class="form-control mb-3" value="{{ old('slug') }}" >
+                <input type="button" class=" btn btn-primary mb-3" value="Genera slug" id="btn-slugger">
+                @error('slug')
+                    <div class="alert alert-danger mt-3" role="alert">
+                        {{ $message }}
+                    </div>
+                @enderror
+                <br>
 
                 <label for="image">Inserisci il link dell'immagine: </label>
                 <input type="url" name="image" id="image" class="form-control mb-3" value="{{ old('image') }}" >
@@ -33,7 +40,7 @@
                 @enderror
 
                 <label for="content">Inserisci il contenuto: </label>
-                <textarea name="content" id="content" cols="30" rows="10" class="form-control mb-3">{{ old('content') }}</textarea>
+                <textarea name="content" id="content" cols="30" rows="10" class="form-control">{{ old('content') }}</textarea>
                 @error('content')
                     <div class="alert alert-danger mt-3" role="alert">
                         {{ $message }}

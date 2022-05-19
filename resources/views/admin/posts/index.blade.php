@@ -7,7 +7,7 @@
         @if (session('deleted'))
             <div class="alert alert-warning">{{ session('deleted') }}</div>
         @endif
-        <div class="mt-5 d-flex justify-content-between align-items-center">
+        <div class="mt-3 d-flex justify-content-between align-items-center">
             <h1 class="text-white">Posts</h1>
             <a href="{{ route('admin.posts.create') }}" class="btn btn-success float-right">Crea un nuovo post</a>
         </div>
@@ -26,20 +26,20 @@
                     </thead>
                     <tbody>
                         @foreach ($elements as $item)
-                            <tr>
+                            <tr  data-id="{{ $item->slug }}">
                                 <th class="text-center" scope="row">{{ $item->id }}</th>
                                 <td>{{ $item->title }}</td>
                                 <td>{{ $item->slug }}</td>
                                 <td>{{ date('d/m/Y', strtotime($item->created_at)) }}</td>
                                 <td>{{ date('d/m/Y', strtotime($item->updated_at)) }}</td>
                                 <td>
-                                    <a class="btn btn-primary" href="{{ route('admin.posts.show', $item->id) }}">Apri</a>
+                                    <a class="btn btn-primary" href="{{ route('admin.posts.show', $item->slug) }}">Apri</a>
                                 </td>
                                 <td>
-                                    <a class="btn btn-primary" href="{{ route('admin.posts.edit', $item->id) }}">Modifica</a>
+                                    <a class="btn btn-primary" href="{{ route('admin.posts.edit', $item->slug) }}">Modifica</a>
                                 </td>
                                 <td class="text-center">
-                                    <button class="btn btn-danger btn-delete" data-id="{{ $item->id }}">Cancella</button>
+                                    <button class="btn btn-danger btn-delete">Cancella</button>
                                 </td>
                             </tr>
                         @endforeach
@@ -77,7 +77,7 @@
                 <h1>Sei sicuro di voler eliminare?</h1>
                 <div class="d-flex justify-content-center">
                     <button id="btn-no" class="btn btn-primary me-3">NO</button>
-                    <form method="POST" data-base="{{ route('admin.posts.destroy', 0) }}">
+                    <form method="POST" data-base="{{ route('admin.posts.destroy', '*****') }}">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-danger">SI</button>

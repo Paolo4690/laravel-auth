@@ -1,12 +1,13 @@
 @extends('layouts.admin')
 
-@section('pageTitle', 'Index')
+@section('pageTitle', $post->title)
 
 @section('pageContent')
     <div class="container">
-        @if (session('deleted'))
-            <div class="alert alert-warning">{{ session('deleted') }}</div>
-        @endif
+        <div class="mt-5 d-flex justify-content-between align-items-center">
+            <h1 class="text-white">{{ $post->title }}</h1>
+            <a href="{{ route('admin.posts.index') }}" class="btn btn-success float-right">Torna alla lista</a>
+        </div>
 
         <div class="row row-cols-4">
             <div class="col">
@@ -21,9 +22,8 @@
                     </ul>
                     @auth
                         <div class="card-body">
-                            <a class="btn btn-primary" href="{{ route('admin.posts.show', $post->id) }}">Apri</a>
-                            <a class="btn btn-primary" href="{{ route('admin.posts.edit', $post->id) }}">Modifica</a>
-                            <button class="btn btn-danger btn-delete" data-id="{{ $post->id }}">Cancella</button>
+                            <a class="btn btn-primary" href="{{ route('admin.posts.edit', $post->slug) }}">Modifica</a>
+                            <button class="btn btn-danger btn-delete" data-id="{{ $post->slug }}">Cancella</button>
                         </div>
                     @endauth
 
