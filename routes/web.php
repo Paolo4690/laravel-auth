@@ -31,6 +31,8 @@ Route::middleware('auth')
         Route::resource('/posts', 'PostController');
     });
 
-    Route::get("{any?}", function () {
-        return view('guests.home');
-    })->where('any', '.*');
+Route::resource('/guests', 'Guest\GuestController');
+
+Route::get("{any?}", function () {
+    return view('guests.home');
+})->where('any', '.*');

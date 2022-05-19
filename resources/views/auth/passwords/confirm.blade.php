@@ -1,6 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
-@section('content')
+@section('pageTitle', 'Confirm Password')
+
+@section('pageContent')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
