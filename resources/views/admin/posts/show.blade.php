@@ -4,13 +4,13 @@
 
 @section('pageContent')
     <div class="container">
-        <div class="mt-5 d-flex justify-content-between align-items-center">
-            <h1 class="text-white">{{ $post->title }}</h1>
+        <div class="mt-5 d-flex justify-content-between align-items-center text-white">
+            <h1>{{ $post->title }}</h1>
             <a href="{{ route('admin.posts.index') }}" class="btn btn-success float-right">Torna alla lista</a>
         </div>
 
-        <div class="row row-cols-4">
-            <div class="col">
+        <div class="row">
+            <div class="col-3">
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="{{ $post->image }}" alt="{{ $post->title }}">
                     <div class="card-body">
@@ -28,6 +28,10 @@
                     @endauth
 
                 </div>
+            </div>
+            <div class="col-9  text-white">
+                <h3 class="mt-3">Descrizione:</h3>
+                <p class="pe-5">{{ $post->content }}</p>
             </div>
 
         </div>
